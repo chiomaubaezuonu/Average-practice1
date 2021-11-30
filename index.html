@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,41 +10,116 @@
 <body>
     <div class="wrapper">
         <div class="input-one">
-            <input type="text" class="numbers1">
-            <input type="text" class="numbers1">    
+            <input type="text" value="10"  class="numbers1" id="num1">
+            <input type="text" value=20 class="numbers1" id="num2">    
         </div>
         <div class="input-two">
-            <input type="text" class="numbers2">    
-        <input type="text" class="numbers2">
+            <input type="text" value=10 class="numbers2" id="num3">    
+        <input type="text" value=10 class="numbers2" id="num4">
         </div>
     
-        
-        <button id="btn">calculate</button> 
+        <div class="all-buttons">
+            <button id="btn">calculate</button> 
+            <button id="reset">Reset</button> 
+        </div>
+       
+        <strong id="average"></strong>
 
     </div>
 
     
     
-        <script> 
-        
-         let button = document.getElementById("btn");
-
-button.onclick = function(){
-   
-    return alert("So when are you coming back?");
-     }
-
-
-            const numbers = [2,3,4,5,6,7,8,9];
-          
-            document.getElementsByClassName("wrapper").innerHTML = y;
-            let y = numbers.reduce((a,b)=>a+b) / numbers.length;
-    
+       <script>
            
-        
-        
-        </script> 
+           document.getElementById("reset").addEventListener("click", function(){
+                 num1.value = "";
+                 num2.value = "";
+                 num3.value = "";
+                 num4.value = "";
 
+            });
+
+                
+            document.querySelector("button").addEventListener("click", function(){
+
+             
+                let a = document.getElementById("num1").value;
+                let b = document.getElementById("num2").value;
+                let c = document.getElementById("num3").value;
+                let d= document.getElementById("num4").value;
+                let aNum = Number(a);
+                let bNum = Number(b);
+                let cNum = Number(c);
+                let dNum = Number(d);
+                let sum = aNum+bNum+cNum+dNum;
+                let arrayOfNum = [aNum,bNum,cNum,dNum];
+                let aveRage = sum/arrayOfNum.length;      
+                document.getElementById("average").innerHTML = "The average is " + aveRage;
+
+                
+                if (isNaN(aNum)) {
+                    document.getElementById("average").innerHTML = "Please enter a valid number in input one";
+                    
+                     }
+                else if (isNaN(bNum)) {
+                    document.getElementById("average").innerHTML = "Please enter a valid number in input two";
+                }
+
+                else if (isNaN(cNum)) {
+                    document.getElementById("average").innerHTML = "Please enter a valid number in input three";
+                }
+
+                else if (isNaN(dNum)) {
+                    document.getElementById("average").innerHTML = "Please enter a valid number in input four";
+                }
+                     
+                     else {
+                        document.getElementById("average").innerHTML = "The average is " + aveRage;  
+                    
+                }
+
+             
+                    // console.log(aNum); 
+                
+               
+            });
+            
+
+            
+
+           
+
+        </script>
     
 </body>
-</html>
+</html> 
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="title">Drum kit</h1>
+
+    <div class="set">
+        <div class="drum1"></div>
+        <div class="drum2"></div>
+        <div class="drum3"></div>
+        <div class="drum4"></div>
+        <div class="drum5"></div>
+        <div class="drum6"></div>
+        <div class="drum7"></div>
+    </div>
+    <script src="index.js"></script>
+</body>
+<footer>
+    made with in london
+</footer>
+</html> -->
